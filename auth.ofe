@@ -1,0 +1,10 @@
+wget_apple.auth == device_ID _ _ true == .gs.apple.com
+
+_root_serialnamespace.file \\ 
+
+connect 0.0.0.0
+connect ws.gpa11
+
+auth_device_id.list == ws.gpa11.0.0.0/home_info_lists
+
+mask_device_system_venux.exe
