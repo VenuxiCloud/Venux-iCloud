@@ -1,0 +1,41 @@
+
+##### VENUX iPSW MOUNTER SYSTEM #####
+
+
+disk == .dmg
+
+view_iOS_filesystem == .
+ {}
+{} kernelcache == drag.ipc
+ {}
+  {}
+hfs_unmount = enabled
+{} ## {}
+statement.filename.=true
+
+locate.ipsw == .devicename_version_model.ipsw
+unmount ==.ipsw
+
+hfs2_mount = disabled
+{} devicetree = true
+ {} devicetree filespace = hfs_mount = disabled
+
+ mount var/system filename_0x000ABE
+filename var/system/applications
+      filename2 var/system/boot
+          filename3 var/system/library
+          
+          ipsw+_mount == enabled
+          dmg+_mount == enabled
+          shsh_fetch == enabled
+          storedisk == enabled
+                {} kill iphone.software.update.server [x0AABE]
+                {} kill ipad.software.update.server [x0AABE]
+                 
+                 connection.apple.itunes.services == block { 0.0.0.0 }
+                  {} kill apple.software.update.server [x0AABE]
+          check_ipsw == disabled 
+                filesystem.check.disable.false
+                
+                end
+                
